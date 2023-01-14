@@ -1,0 +1,13 @@
+:root {
+    --mainColor: salmon;
+}
+
+$blue-color: blue; 
+div {
+    background-color: $blue-color;
+}
+
+h1 {
+    color: var(--mainColor)
+
+}
