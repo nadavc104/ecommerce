@@ -1,0 +1,15 @@
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+    border: 2px solid grey;
+    min-width: 350px;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    // background: url('../../images/headset.jpeg');
+    // background-size: cover;
+    // background-position: center;
+    // min-height: 300px;
+    // width: 100%;
+}

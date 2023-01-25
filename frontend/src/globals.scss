@@ -1,0 +1,19 @@
+*, :before, :after {
+    box-sizing: border-box;
+}
+  
+html, body, #root {
+    margin: 0;
+    height: 100%;
+}
+
+main {
+    border: 1px solid tan;
+    max-width: 1650px;
+    padding: 0 3rem;
+    margin: 1rem auto;
+}
+
+h1,h2,h3,ul {
+    margin: 0;
+}

@@ -7,6 +7,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    publicPath: '/',
+    assetModuleFilename: 'images/[hash][ext][query]'
   },
   plugins: [
     new HTMLWebpackPlugin({
@@ -15,6 +17,9 @@ module.exports = {
     new MiniCssExtractPlugin()
   ],
   devtool: 'source-map',
+  devServer: {
+    historyApiFallback: true
+  },
   module: {
     rules: [
         {
@@ -29,7 +34,11 @@ module.exports = {
         },
         {
             test: /\.(s[ac]|c)ss$/i,
-            use:[MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+            use:[MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader', ]
+        },
+        {
+          test: /\.(jpeg|png|jpg|svg|gif)$/i,
+          type: 'asset/resource',
         }
     ]
   }

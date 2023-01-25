@@ -1,0 +1,15 @@
+@import "../../_variables.scss";
+
+.header {
+    background-color: $salmon-color;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding-right: 3rem;
+    gap: 1rem;
+}
+
+.icon {
+    color: white;
+    margin: $h1-margin
+}
