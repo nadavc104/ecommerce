@@ -3,7 +3,7 @@ import './globals.scss'
 import { Routes, Route } from 'react-router-dom'
 import Header from './components/header/Header'
 import Home from './screens/Home'
-
+import Cart from './screens/Cart'
 const App = () => {
     
     console.log('App.js')
@@ -13,7 +13,7 @@ const App = () => {
         <main>
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/books' element={<h1>hey</h1>} />
+                <Route path='/cart' element={<Cart />}/>
             </Routes>
         </main>
     </>
