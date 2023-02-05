@@ -34,11 +34,18 @@ module.exports = {
         },
         {
             test: /\.(s[ac]|c)ss$/i,
-            use:[MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader', ]
+            use:[
+              {
+                loader: MiniCssExtractPlugin.loader,
+                options: { publicPath: ''}
+              },
+              'css-loader', 'postcss-loader', 'sass-loader', 
+            ],
+
         },
         {
           test: /\.(jpeg|png|jpg|svg|gif)$/i,
-          type: 'asset/resource',
+          type: 'asset',
         }
     ]
   }

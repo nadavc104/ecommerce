@@ -11,9 +11,9 @@ const Searchbar = () => {
         console.log(e)
         setValue(inputRef.current.value)
     }
-    console.log(value)
+    // console.log(value)
 
-    console.log('searchbar render')
+    console.log('Searchbar component render')
     return(
         <div className={styles.container}>
             <input ref={inputRef} type='text' onKeyUp={(e) => e.key ==='Enter' ? submitHandler(e) : null}  placeholder='search'/>

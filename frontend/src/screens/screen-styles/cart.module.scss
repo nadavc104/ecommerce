@@ -1,0 +1,43 @@
+.container {
+    max-width: 1300px;
+    border: 1px solid grey;
+    padding: 1rem;
+    min-width: 580px;
+}
+
+.auth {
+    text-align: right;
+    padding: .5rem;
+    min-width: 210px;
+}
+
+.cart-container {
+    border: 1px solid black;
+}
+
+.row {
+    display: flex;
+    background-color: lightgray;
+
+    button {
+        margin-left: auto;
+        padding: .5rem 1.2rem;
+        text-decoration: none;
+        background-color: lightcoral;
+        border: 1px solid lightcoral;
+    }
+}
+
+.empty-cart {
+    cursor: pointer;
+}
+
+.total {
+    display: flex;
+    padding: 1rem;
+    span {
+        &:first-of-type{
+            flex: 1;
+        }
+    }
+}

@@ -6,7 +6,7 @@ import Home from './screens/Home'
 import Cart from './screens/Cart'
 const App = () => {
     
-    console.log('App.js')
+    console.log('App.js render')
     return(
     <>
         <Header />

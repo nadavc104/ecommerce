@@ -6,12 +6,16 @@ import Searchbar from '../searchbar/Searchbar'
 
 const Header = () => {
 
+    console.log('Header component render')
+
     return(
-        <header className={styles.header}>
-            <h1 style={{margin: '0',cursor: 'pointer'}} className={styles.icon}><Link to='/'>Icon</Link></h1>
-            <Searchbar />
-            <Navbar />
-        </header>
+        <div className={styles.container}>
+            <header className={styles.header}>
+                <h1 style={{margin: '0',cursor: 'pointer'}} className={styles.icon}><Link to='/'>Icon</Link></h1>
+                <Searchbar />
+                <Navbar />
+            </header>
+        </div>
     )
 }
 
