@@ -2,7 +2,7 @@ import { createSlice, current } from '@reduxjs/toolkit'
 
 const initialState = {
     cartItems: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [],
-    amount: 0,
+    totalQuantity: 0,
     totalPrice: 0,
 }
 
@@ -18,7 +18,6 @@ const cartSlice = createSlice({
             if(itemIndex != -1) {
                 console.log('exists')
                 state.cartItems[itemIndex].quantity += 1
-                state.amount += 1
                 // console.log(current(state.cartItems))
                 localStorage.setItem('cart', JSON.stringify(state.cartItems))
 
@@ -26,7 +25,6 @@ const cartSlice = createSlice({
                 console.log('dont exists')
                 const temp = {...action.payload, quantity: 1}
                 state.cartItems.push(temp)
-                state.amount += 1
                 localStorage.setItem('cart', JSON.stringify(state.cartItems))
             }
         },
@@ -63,10 +61,15 @@ const cartSlice = createSlice({
         
         emptyCart(state, action) {
             state.cartItems = []
+            localStorage.setItem('cart', JSON.stringify(state.cartItems) )
+        },
+
+        updateCart(state, action) {
+            state.totalQuantity = state.cartItems.reduce((acc, item) => acc + item.quantity, 0)
+            state.totalPrice = state.cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0)
         }
     }
 })
 
-export const  calcAmount  = (state) => state.cart.cartItems.reduce((acc, item) => acc + item.quantity, 0)
-export const { addToCart, removeItem, incrementQuantity, decrementQuantity, emptyCart } = cartSlice.actions
+export const { addToCart, removeItem, incrementQuantity, decrementQuantity, emptyCart,updateCart } = cartSlice.actions
 export default cartSlice.reducer

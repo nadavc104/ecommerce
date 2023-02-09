@@ -21,7 +21,6 @@ const Home = () => {
                 {list}
             </div>
         </section>
-
     </> 
     )
 }

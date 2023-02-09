@@ -1,0 +1,53 @@
+.container {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    border-bottom: 1px dotted gray;
+    padding: .5rem;
+    position: relative;
+}
+
+.img {
+    width: 100px;
+    height: 80px;
+}
+
+.remove-item {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    button {
+        background-color: lightgoldenrodyellow;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+.content-container {
+    display: flex;
+    flex-flow: column nowrap;
+    flex-basis: auto;
+    flex-grow: 3;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    gap: .2rem;
+    justify-content: space-between;
+    padding-right: 1rem;
+
+    button {
+        &:disabled:hover {
+            background-color: yellow;
+            cursor: no-drop;
+        }
+    }
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    gap: .2rem;
+}

@@ -3,6 +3,8 @@
     border: 1px solid grey;
     padding: 1rem;
     min-width: 580px;
+    margin: 0 auto;
+
 }
 
 .auth {
@@ -30,6 +32,11 @@
 
 .empty-cart {
     cursor: pointer;
+}
+
+.list {
+    background-color: white;
+
 }
 
 .total {

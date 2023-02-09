@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import './globals.scss'
 import { Routes, Route } from 'react-router-dom'
+import { updateCart } from './features/cartSlice'
 import Header from './components/header/Header'
 import Home from './screens/Home'
 import Cart from './screens/Cart'
 const App = () => {
-    
+
+    const dispatch = useDispatch()
     console.log('App.js render')
+
+    useEffect(() => {
+        dispatch(updateCart())
+    },[])
     return(
     <>
         <Header />

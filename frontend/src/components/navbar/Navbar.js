@@ -3,12 +3,11 @@ import { useSelector } from 'react-redux'
 import styles from './navbar.module.scss'
 import { Link } from 'react-router-dom'
 import { FaShoppingCart, FaUserCircle, FaHeart } from 'react-icons/fa'
-import { calcAmount } from  '../../features/cartSlice'
 
 const Navbar = () => {
 
-    const cartItemsAmount = useSelector(calcAmount)
-    // console.log(cartItemsAmount)
+    const cartItemsAmount = useSelector(state => state.cart.totalQuantity)
+    console.log(cartItemsAmount)
 
     const liList = [
         {name: 'cart', haveIcon: true, icon: <FaShoppingCart size='1.3rem'/>, path: '/cart' },

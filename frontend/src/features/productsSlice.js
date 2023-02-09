@@ -15,4 +15,5 @@ const productsSlice = createSlice({
     reducers: {}
 })
 
+export const getItems = state => state.products.productsList
 export default productsSlice.reducer

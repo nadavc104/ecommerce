@@ -3,13 +3,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import styles from './card.module.scss'
 import { FaShoppingCart } from 'react-icons/fa'
-import { addToCart } from '../../features/cartSlice'
+import { addToCart, updateCart } from '../../features/cartSlice'
+
 const Card = ({product}) => {
     console.log(product)
 
     const dispatch = useDispatch()
     const addToCartHandler = () => {
         dispatch(addToCart({id: product.id, title: product.title, img: product.img, price: product.price}))
+        dispatch(updateCart())
     }
     console.log('card component render')
 
