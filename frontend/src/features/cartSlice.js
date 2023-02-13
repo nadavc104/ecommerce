@@ -11,14 +11,11 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart(state, action) {
-            // console.log(current(state.cartItems))
             const itemIndex = state.cartItems.findIndex(item => item.id === action.payload.id)
             console.log(itemIndex)
-            // console.log(exists)
             if(itemIndex != -1) {
                 console.log('exists')
                 state.cartItems[itemIndex].quantity += 1
-                // console.log(current(state.cartItems))
                 localStorage.setItem('cart', JSON.stringify(state.cartItems))
 
             } else {

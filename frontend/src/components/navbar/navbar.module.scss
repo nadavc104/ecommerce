@@ -27,7 +27,7 @@
     }
 }
 
-.cart-amount {
+.amount {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,20 +40,10 @@
     height: 0.8rem;
     font-size: 14px;
 }
-// .amount-container {
-//     position: absolute;
-//     top: -0.6rem;
-//     right: -0.6rem;
-//     width: 1.75rem;
-//     height: 1.75rem;
-//     border-radius: 50%;
-//     background: var(--clr-primary-light);
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//   }
-//   .total-amount {
-//     color: var(--clr-white);
-//     margin-bottom: 0;
-//     font-size: 1.25rem;
-//   }
+
+.wish-btn {
+    padding: 0;
+    cursor: pointer;
+    border: none;
+    background-color: inherit;
+}

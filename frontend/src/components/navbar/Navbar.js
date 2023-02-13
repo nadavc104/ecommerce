@@ -1,33 +1,45 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import styles from './navbar.module.scss'
 import { Link } from 'react-router-dom'
 import { FaShoppingCart, FaUserCircle, FaHeart } from 'react-icons/fa'
+import { toggleModal, removeItem, updateWish } from '../../features/wishSlice'
+import Modal from '../modal/Modal'
 
-const Navbar = () => {
+export const Navbar = () => {
 
+    const dispatch = useDispatch()
     const cartItemsAmount = useSelector(state => state.cart.totalQuantity)
-    console.log(cartItemsAmount)
+    const { list, quantity, open } = useSelector(state => state.wish)
 
-    const liList = [
-        {name: 'cart', haveIcon: true, icon: <FaShoppingCart size='1.3rem'/>, path: '/cart' },
-        {name: 'wish list', haveIcon: true, icon: <FaHeart size='1.3rem'/>, path: '/wish-list'},
-        {name: 'profile', haveIcon: true, icon: <FaUserCircle size='1.3rem'/>, path: '/profile'},
-    ]
+    useEffect(() => {
+        console.log('navbar useEffect')
+        dispatch(updateWish())
+    },[list])
 
-    const lis = liList.filter(item => item.haveIcon === true).map((item, index) => 
-        <li data-name={item.name} key={index}>
-            <Link to={item.path}>{item.icon}</Link>
-            {item.name === 'cart' && <div className={styles['cart-amount']}>{cartItemsAmount}</div>}
-        </li>
-    )
+    const toggleHandler = (e) => {
+        console.log('toggle click')
+        console.log(e)
+        dispatch(toggleModal(!open))
+    }
+
+    const removeItemHandler = (id) => {
+        console.log('remove btn clicked')
+        dispatch(removeItem({id: id}))
+    }
+
     console.log('Navbar component render')
-
+    console.log(cartItemsAmount)
+    console.log(list)
+    console.log(quantity)
     return(
         <nav>
             <ul className={styles.ul}>
-               {lis} 
+               <li><Link to='/cart'><FaShoppingCart size='1.3rem'/></Link><div className={styles.amount}>{cartItemsAmount}</div></li>
+               <li><button onClick={toggleHandler} className={styles['wish-btn']}><FaHeart size='1.3rem'/></button><div className={styles.amount}>{quantity}</div></li>
+               <li><Link><FaUserCircle size='1.3rem'/></Link></li>
             </ul>
+            {open && <Modal items={list} open={open} onClose={toggleHandler} onRemove={removeItemHandler} />}
         </nav>
     )
 }
